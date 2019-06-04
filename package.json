@@ -1,7 +1,7 @@
 {
-    "name": "node-red-contrib-soap-http",
-    "version": "0.1.2",
-    "description": "SOAP Client for Node Red (HTTP Response Status)",
+    "name": "node-red-contrib-soap-httpcode",
+    "version": "0.1.8",
+    "description": "SOAP Client for Node Red",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,8 +18,8 @@
     ],
     "node-red": {
         "nodes": {
-            "soap-http": "soap-node-http.js",
-            "soap-config-http": "soap-config-http.js"
+            "soap": "soap-node.js",
+            "soap-config": "soap-config.js"
         }
     },
     "author": {

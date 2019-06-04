@@ -2,6 +2,11 @@
 Node-red nodes that allow users to send SOAP request.
 
 
+# Fork of https://github.com/chameleonbr/node-red-contrib-soap
+Change (brogarvolant) : return http status code and remove error if http response is 200
+
+Change (jloupdef) : enable the use of local wsdl file by preventing the addition of "?wsdl" at the end of the wdsl url if no protocol is defined
+
 ##Usages
 To set up SOAP request, create a new soap config:
 * Enter the WSDL address to the `WSDL` field. 
@@ -15,6 +20,11 @@ You can also feed in parameters and overwrite configs with an injected msg:
 * You can have `msg.options` to add in options to the SOAP request.
 * You can have `msg.headers` to add in headers for the SOAP request.
 * You can feed in `msg.payload.<parameters>` to feed in the parameters you need.
+
+Returns the following properties:
+* msg.payload : SOAP request result
+* msg.statusCode : http response status code
+* msg.errMsg : error message (if applicable)
 
 For example, here is the sample flow where we try to send a SOAP request to http://www.webservicex.net/geoipservice.asmx, trying to call the `GetGeoIP` function with an variable IPAddress as 139.130.4.5.
 
