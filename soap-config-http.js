@@ -9,5 +9,5 @@ module.exports = function (RED) {
         this.cert = n.cert;
         this.token = n.token;
     }
-    RED.nodes.registerType("soap-config", SoapConfig);
+    RED.nodes.registerType("soap-config-http", SoapConfig);
 }

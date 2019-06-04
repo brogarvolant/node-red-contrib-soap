@@ -1,7 +1,7 @@
 {
-    "name": "node-red-contrib-soap",
-    "version": "0.1.0",
-    "description": "SOAP Client for Node Red",
+    "name": "node-red-contrib-soap-http",
+    "version": "0.1.2",
+    "description": "SOAP Client for Node Red (HTTP Response Status)",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/chameleonbr/node-red-contrib-soap.git"
+        "url": "git+https://github.com/brogarvolant/node-red-contrib-soap.git"
     },
     "keywords": [
         "soap",
@@ -18,8 +18,8 @@
     ],
     "node-red": {
         "nodes": {
-            "soap": "soap-node.js",
-            "soap-config": "soap-config.js"
+            "soap-http": "soap-node-http.js",
+            "soap-config-http": "soap-config-http.js"
         }
     },
     "author": {

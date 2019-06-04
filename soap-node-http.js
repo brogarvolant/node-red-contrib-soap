@@ -45,11 +45,14 @@ module.exports = function (RED) {
 
                     if(client.hasOwnProperty(node.method)){
                         client[node.method](msg.payload, function (err, result) {
-                            if (err) {
-                                node.status({fill: "red", shape: "dot", text: "Service Call Error: " + err});
-                                node.error("Service Call Error: " + err);
-                                return;
-                            }
+                            //if (err) {
+                            //    node.status({fill: "red", shape: "dot", text: "Service Call Error: " + err});
+                            //    node.error("Service Call Error: " + err);
+							//	msg.payload = null;
+							//	msg.errMsg = "Soap Service Call Error: " + err;
+							//	node.send(msg);
+							//	return;
+                            //}
                             node.status({fill:"green", shape:"dot", text:"SOAP result received"});
                             msg.payload = result;
                             node.send(msg);
@@ -57,7 +60,10 @@ module.exports = function (RED) {
                     } else {
                         node.status({fill:"red", shape:"dot", text:"Method does not exist"});
                         node.error("Method does not exist!");
-                    };
+						msg.payload = null;
+						msg.errMsg = "Soap method " + node.method + " does not exist!";										
+						node.send(msg);
+                    }
                 });
             });
         } catch (err) {
@@ -65,5 +71,5 @@ module.exports = function (RED) {
             node.error(err.message);
         }
     }
-    RED.nodes.registerType("soap request", SoapCall);
+    RED.nodes.registerType("soap request http", SoapCall);
 };
